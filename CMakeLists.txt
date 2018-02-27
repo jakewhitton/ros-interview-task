@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(test)
+project(task)
+
+add_compile_options(-std=c++11)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
@@ -26,4 +28,4 @@ include_directories(${catkin_INCLUDE_DIRS})
 
 add_executable(runner src/runner_node.cpp src/node.cpp src/runner.cpp)
 target_link_libraries(runner ${catkin_LIBRARIES})
-add_dependencies(runner test_generate_messages_cpp)
+add_dependencies(runner task_generate_messages_cpp)
