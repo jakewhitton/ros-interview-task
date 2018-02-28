@@ -1,6 +1,4 @@
 #include "node.h"
-#include <cstring>
-#include <algorithm>
 
 Node::Node(int argc, char ** argv, const char * node_name) :
 	name(node_name),

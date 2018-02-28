@@ -93,13 +93,14 @@ static void initializeVariableState(visualization_msgs::Marker & marker_msg, con
 	marker_msg.pose.orientation.w = 1.0;
 }
 
+// This bit of state is here because ROS callbacks need to be static members,
+// and we need some way of accessing object state.  Since we should only ever
+// have one observer in the program, we use a static member to point to that member
 Observer * Observer::current_observer;
 
 void Observer::callback(const task::position::ConstPtr & new_message) {
-	// Generate a reference to the actual message so we can avoid
-	// pointer operators
+	// Generate a reference to the actual message so we can avoid pointer operators
 	const task::position & message = *new_message;
-
 
 	// Now, we construct a Marker message for rviz
 	visualization_msgs::Marker marker;
@@ -113,6 +114,7 @@ void Observer::callback(const task::position::ConstPtr & new_message) {
 	initializeVariableState(marker, message);
 
 	// Wait for a subscriber to be available and then send the message
+	// NOTE: See above comment about current_observer
 	while (current_observer->publisher.getNumSubscribers() < 1) {
 		if (!ros::ok()) {
 			return;

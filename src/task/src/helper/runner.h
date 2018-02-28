@@ -7,6 +7,7 @@
 
 class Runner : private Node {
 private:
+	// Used to publish messages to "position" topic
 	ros::Publisher publisher;
 
 	// Function pointer to f(t), which returns a task::position object

@@ -21,9 +21,7 @@ generate_messages(
   std_msgs
 )
 
-catkin_package(
-#   CATKIN_DEPENDS message_runtime roscpp rospy std_msgs
-)
+catkin_package()
 
 include_directories(${catkin_INCLUDE_DIRS})
 
