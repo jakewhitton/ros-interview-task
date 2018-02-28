@@ -3,14 +3,14 @@
 
 #include "node.h"
 #include "ros/ros.h"
-#include "test/position.h"
+#include "task/position.h"
 
 class Runner : private Node {
 private:
 	ros::Publisher publisher;
 
-	// Function pointer to f(t), which returns a test::position object
-	test::position (*f)(double);
+	// Function pointer to f(t), which returns a task::position object
+	task::position (*f)(double);
 
 	// Timing
 	const int frequency = 10;
@@ -20,7 +20,7 @@ private:
 	void run();
 	void loop();
 public:
-	Runner(int argc, char ** argv, const char * node_name, test::position (*)(double));
+	Runner(int argc, char ** argv, const char * node_name, task::position (*)(double));
 };
 
 #endif

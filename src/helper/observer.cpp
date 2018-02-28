@@ -1,8 +1,8 @@
 #include "observer.h"
 
-Observer::Observer(int argc, char ** argv const char * node_name) :
+Observer::Observer(int argc, char ** argv, const char * node_name) :
 	Node(argc, argv, node_name),
-	subscriber(handle.subscribe("position", 1000 callback))
+	subscriber(handle.subscribe("position", 1000, callback))
 {
 	run();
 }
@@ -18,6 +18,10 @@ void Observer::loop() {
 	ros::spinOnce();
 }
 
-void Observer::callback(const test::position::ConstPtr & message) {
+void Observer::callback(const task::position::ConstPtr & new_message) {
+	// Generate a reference to the actual message so we can avoid
+	// pointer operators
+	const task::position & message = *new_message;
+
 	ROS_INFO("I heard %s update.\n", message.object_name);
 }

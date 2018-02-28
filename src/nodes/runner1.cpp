@@ -1,8 +1,8 @@
 #include "../helper/runner.h"
 #include <cmath>
 
-test::position f(double t) {
-	test::position result;
+task::position f(double t) {
+	task::position result;
 
 	double amplitude = 5.0;
 

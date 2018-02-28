@@ -6,7 +6,11 @@
 
 class Observer : private Node {
 private:
+	// Used to receive messages from Runners
 	ros::Subscriber subscriber;
+
+	// Used to publish messages to rviz
+	ros::Publisher publisher;
 
 	// Timing
 	const int frequency = 10;
@@ -16,9 +20,9 @@ private:
 	void loop();
 
 	// Static callback
-	static void callback(const test::position::ConstPtr & message);
+	static void callback(const task::position::ConstPtr & message);
 public:
 	Observer(int argc, char ** argv, const char * node_name);
-}
+};
 
 #endif
