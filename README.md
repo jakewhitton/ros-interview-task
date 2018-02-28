@@ -31,3 +31,35 @@ int main(int argc, char ** argv) {
 3. Source package-specific environment variables by running `source devel/setup.bash`
 
 # How Do You Run It?
+
+1. Start up to five Runners.
+    * Issue `rosrun task runner1 &` to start runner 1 in the background
+    * Issue `rosrun task runner2 &` to start runner 2 in the background
+        + *etc.*
+        + If you get an error like `[rospack] Error: package 'task' not found`, then you likely haven't sourced the package-specific environment variables from the last section.
+2. Start the observer.
+    * Issue `rosrun task observer &` to start the observer in the background
+        + You should get a once-appearing warning telling you to create subscribers.  We are about to do that right now.
+3. Start rviz
+    * Issue `rosrun rviz rviz &` to start rviz in the background
+        + The GUI should pop up in a few seconds.
+4. At this point, rviz should be open, but you won't see any objects in the view
+    * Solve this by clicking the "Add" button at the bottom left and selecting "Marker".
+        + At this point, you should see the objects from each runner moving independently of one another.
+
+### Small Note About Colors
+
+The easiest way I found to distinguish between the runner objects was to just color each a unique color.  With that in mind,
+
+- Runner 1: Red
+- Runner 2: Green
+- Runner 3: Blue
+- Runner 4: Yellow
+- Runner 5: Teal
+
+
+# How Do I Make Changes?
+
+You can make modifications to the functions that govern the movement of the runners by looking at their respective node-instantiating cpp file in src/task/src/nodes.
+
+Here is an example of one of these functions for reference.
