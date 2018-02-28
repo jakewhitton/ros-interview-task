@@ -6,7 +6,7 @@ task::position f(double t) {
 
 	double amplitude = 5.0;
 
-	result.object_name = "Runner 2";
+	result.object_name = "runner2";
 	result.x = amplitude * sqrt(2) * cos(t) / (pow(sin(t), 2) + 1.0);
 	result.y = result.x * sin(t);
 	result.z = 0.0;
