@@ -8,7 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
-  rviz
+  visualization_msgs
 )
 
 add_message_files(

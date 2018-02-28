@@ -13,7 +13,7 @@ private:
 	ros::Publisher publisher;
 
 	// Timing
-	const int frequency = 10;
+	const int frequency = 50;
 	ros::Rate timer = ros::Rate(frequency);
 
 	void run();
@@ -21,6 +21,8 @@ private:
 
 	// Static callback
 	static void callback(const task::position::ConstPtr & message);
+	// Needed so that static callback can access object state
+	static Observer * current_observer;
 public:
 	Observer(int argc, char ** argv, const char * node_name);
 };

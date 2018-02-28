@@ -13,7 +13,7 @@ private:
 	task::position (*f)(double);
 
 	// Timing
-	const int frequency = 10;
+	const int frequency = 20;
 	ros::Rate timer = ros::Rate(frequency);
 	double timestamp;
 	
