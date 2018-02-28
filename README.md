@@ -15,7 +15,7 @@ task::position f(double t) {
 
     /* Function that produces result */
 
-    return result
+    return result;
 }
 
 int main(int argc, char ** argv) {
@@ -24,5 +24,10 @@ int main(int argc, char ** argv) {
 ~~~
 
 # How Do You Build It?
+
+1. Navigate to the base of this repository.
+2. Issue `catkin_make`
+    * This will build the package as well as create some folders in the repo.
+3. Source package-specific environment variables by running `source devel/setup.bash`
 
 # How Do You Run It?
