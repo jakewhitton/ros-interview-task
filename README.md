@@ -78,3 +78,5 @@ task::position f(double t) {
 	return result;
 }
 ~~~
+
+Then just recompile the package by issuing `catkin_make` in the root of this repository.
