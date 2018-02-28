@@ -63,3 +63,18 @@ The easiest way I found to distinguish between the runner objects was to just co
 You can make modifications to the functions that govern the movement of the runners by looking at their respective node-instantiating cpp file in src/task/src/nodes.
 
 Here is an example of one of these functions for reference.
+
+~~~c
+task::position f(double t) {
+	task::position result;
+
+	double amplitude = 5.0;
+
+	result.object_name = "runner2";
+	result.x = amplitude * sqrt(2) * cos(t) / (pow(sin(t), 2) + 1.0);
+	result.y = result.x * sin(t);
+	result.z = 0.0;
+	
+	return result;
+}
+~~~
