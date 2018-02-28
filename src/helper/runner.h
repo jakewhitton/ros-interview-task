@@ -9,7 +9,7 @@ class Runner : private Node {
 private:
 	ros::Publisher publisher;
 
-	// Function pointer to f(t), which returns a Position object
+	// Function pointer to f(t), which returns a test::position object
 	test::position (*f)(double);
 
 	// Timing
@@ -20,7 +20,7 @@ private:
 	void run();
 	void loop();
 public:
-	Runner(int argc, char ** argv, const char * node_name);
+	Runner(int argc, char ** argv, const char * node_name, test::position (*)(double));
 };
 
 #endif

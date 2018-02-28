@@ -6,14 +6,14 @@ test::position f(double t) {
 
 	double amplitude = 5.0;
 
-	result.object_name = "Runner 1";
-	result.x = amplitude * cos(t);
-	result.y = amplitude * sin(t);
+	result.object_name = "Runner 4";
+	result.x = 0.0;
+	result.y = sin(t) * amplitude;
 	result.z = 0.0;
 	
 	return result;
 }
 
 int main(int argc, char ** argv) {
-	Runner runner(argc, argv, "runner1", f);
+	Runner runner(argc, argv, "runner4", f);
 }

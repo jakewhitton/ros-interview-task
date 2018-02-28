@@ -1,7 +1,7 @@
 #include "runner.h"
 #include <cmath>
 
-Runner::Runner(int argc, char ** argv, const char * node_name, Position (*function)(double)) :
+Runner::Runner(int argc, char ** argv, const char * node_name, test::position (*function)(double)) :
 	Node(argc, argv, node_name),
 	publisher(handle.advertise<test::position>("position", 1000)),
 	timestamp(ros::Time::now().toSec()),
