@@ -46,6 +46,10 @@ int main(int argc, char ** argv) {
 4. At this point, rviz should be open, but you won't see any objects in the view
     * Solve this by clicking the "Add" button at the bottom left and selecting "Marker".
         + At this point, you should see the objects from each runner moving independently of one another.
+5. (Optional) Start pathlength.py node
+    * Issue `rosrun task pathlength.py`
+        + It will output information for each message that is published to the 'position' topic
+            - Beware that it kind of spews a bunch of information.  I would recommend only running it with runner4 running, as you can see its velocity speed up and slow down.
 
 ### Small Note About Colors
 
